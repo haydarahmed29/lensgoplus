@@ -322,7 +322,7 @@ a{color:inherit;text-decoration:none;}
 .mod-img-placeholder{width:100%;aspect-ratio:4/3;background:var(--raised);border:1px solid var(--border);border-radius:var(--r-lg);display:flex;flex-direction:column;align-items:center;justify-content:center;margin:16px 0 6px;overflow:hidden;}
 .mod-img-placeholder img{width:100%;height:100%;object-fit:cover;border-radius:var(--r-lg);}
 .mod-img-placeholder .img-icon{font-size:28px;margin-bottom:8px;opacity:.4;}
-.mod-img-placeholder .img-label{display:none;}
+.mod-img-placeholder .img-label{font-size:12px;color:var(--text-3);font-weight:500;}
 .mod-img-caption{font-size:11px;color:var(--text-3);margin-bottom:16px;padding-left:4px;}
 .mod-img-caption strong{color:var(--text-2);}
 .mod-checklist{display:flex;flex-direction:column;gap:10px;margin:12px 0 16px;}
@@ -405,7 +405,7 @@ a{color:inherit;text-decoration:none;}
 .ba-after{width:50%;overflow:hidden;border-right:2px solid #fff;}
 .ba-placeholder{width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;}
 .ba-placeholder .img-icon{font-size:28px;opacity:.4;}
-.ba-placeholder .img-label{display:none;}
+.ba-placeholder .img-label{font-size:11px;color:var(--text-3);font-weight:500;}
 .ba-divider{position:absolute;top:0;bottom:0;left:50%;width:2px;background:#fff;pointer-events:none;z-index:2;}
 .ba-handle{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:36px;height:36px;border-radius:50%;background:#fff;display:flex;align-items:center;justify-content:center;z-index:3;pointer-events:none;box-shadow:0 2px 8px rgba(0,0,0,.3);}
 .ba-handle-icon{font-size:14px;color:#333;}
@@ -794,7 +794,7 @@ const MATERIALS = [
 
     <div class="mod-img-placeholder">
       <div class="img-icon">🖼</div>
-      <div class="img-label">https://raw.githubusercontent.com/haydarahmed29/lensgoplus/main/images/materi/camera-settings-xiaomi.jpg</div>
+      <div class="img-label">images/materi/camera-settings-xiaomi.jpg</div>
     </div>
     <div class="mod-img-caption"><strong>Note:</strong> Xiaomi UI Phone</div>
 
@@ -823,7 +823,7 @@ const MATERIALS = [
 
     <div class="mod-img-placeholder">
       <div class="img-icon">🖼</div>
-      <div class="img-label">https://raw.githubusercontent.com/haydarahmed29/lensgoplus/main/images/materi/camera-ratio-43.jpg</div>
+      <div class="img-label">images/materi/camera-ratio-43.jpg</div>
     </div>
     <p style="margin-top:4px"><strong>Gunakan Ratio tertinggi, biasanya 4:3</strong></p>
     <p>Karena sensor kamera HP umumnya berbentuk 4:3. Jadi kalau kamu pilih 16:9, foto akan dipotong (crop) dari sensor.</p>
@@ -837,7 +837,7 @@ const MATERIALS = [
 
     <div class="mod-img-placeholder">
       <div class="img-icon">🖼</div>
-      <div class="img-label">https://raw.githubusercontent.com/haydarahmed29/lensgoplus/main/images/materi/apps-color-grading.jpg</div>
+      <div class="img-label">images/materi/apps-color-grading.jpg</div>
     </div>
     <div class="mod-app-item">
       <div class="mod-app-icon">🎨</div>
@@ -853,7 +853,7 @@ const MATERIALS = [
 
     <div class="mod-img-placeholder">
       <div class="img-icon">🖼</div>
-      <div class="img-label">https://raw.githubusercontent.com/haydarahmed29/lensgoplus/main/images/materi/apps-texting-layout.jpg</div>
+      <div class="img-label">images/materi/apps-texting-layout.jpg</div>
     </div>
     <div class="mod-app-item">
       <div class="mod-app-icon">✍️</div>
@@ -872,7 +872,7 @@ const MATERIALS = [
 
     <div class="mod-img-placeholder">
       <div class="img-icon">🖼</div>
-      <div class="img-label">https://raw.githubusercontent.com/haydarahmed29/lensgoplus/main/images/materi/exposure-pro-mode-xiaomi.jpg</div>
+      <div class="img-label">images/materi/exposure-pro-mode-xiaomi.jpg</div>
     </div>
     <div class="mod-img-caption"><strong>Note:</strong> UI Professional Mode Xiaomi Phone</div>
 
@@ -902,7 +902,7 @@ const MATERIALS = [
 
     <div class="mod-img-placeholder">
       <div class="img-icon">🖼</div>
-      <div class="img-label">https://raw.githubusercontent.com/haydarahmed29/lensgoplus/main/images/materi/shutter-speed-demo.jpg</div>
+      <div class="img-label">images/materi/shutter-speed-demo.jpg</div>
     </div>
 
     <p>Shutter Speed itu seberapa lama sensor "melihat" cahaya.</p>
@@ -925,7 +925,7 @@ const MATERIALS = [
 
     <div class="mod-img-placeholder">
       <div class="img-icon">🖼</div>
-      <div class="img-label">https://raw.githubusercontent.com/haydarahmed29/lensgoplus/main/images/materi/iso-noise-demo.jpg</div>
+      <div class="img-label">images/materi/iso-noise-demo.jpg</div>
     </div>
 
     <p>ISO bukan soal sensor jadi "lebih sensitif"  karena sensor digital punya sensitivitas tetap, yang berubah itu <strong>volumenya</strong>.</p>
@@ -949,7 +949,7 @@ const MATERIALS = [
 
     <div class="mod-img-placeholder">
       <div class="img-icon">🖼</div>
-      <div class="img-label">https://raw.githubusercontent.com/haydarahmed29/lensgoplus/main/images/materi/aperture-demo.jpg</div>
+      <div class="img-label">images/materi/aperture-demo.jpg</div>
     </div>
 
     <p>Aperture itu ukuran lubangnya lensa. Bayangin lensa kameramu itu seperti mata:</p>
@@ -1012,7 +1012,7 @@ const MATERIALS = [
 
     <div class="mod-img-placeholder">
       <div class="img-icon">🖼</div>
-      <div class="img-label">https://raw.githubusercontent.com/haydarahmed29/lensgoplus/main/images/materi/ev-shortcut-auto-mode.jpg</div>
+      <div class="img-label">images/materi/ev-shortcut-auto-mode.jpg</div>
     </div>
 
     <p style="font-size:15px;font-weight:700;text-align:center;margin:20px 0 4px">Selamat Mencoba! 🎉</p>
@@ -1105,7 +1105,7 @@ const MATERIALS = [
 
     <div class="mod-img-placeholder" style="aspect-ratio:3/4">
       <div class="img-icon">🖼</div>
-      <div class="img-label">https://raw.githubusercontent.com/haydarahmed29/lensgoplus/main/images/materi/golden-hour-example.jpg</div>
+      <div class="img-label">images/materi/golden-hour-example.jpg</div>
     </div>
     <div class="mod-img-caption">Contoh foto golden hour  cahaya sore dari samping menciptakan nuansa hangat dan bayangan yang indah.</div>
 
@@ -1119,7 +1119,7 @@ const MATERIALS = [
 
     <div class="mod-img-placeholder" style="aspect-ratio:3/4">
       <div class="img-icon">🖼</div>
-      <div class="img-label">https://raw.githubusercontent.com/haydarahmed29/lensgoplus/main/images/materi/light-between-buildings.jpg</div>
+      <div class="img-label">images/materi/light-between-buildings.jpg</div>
     </div>
     <div class="mod-img-caption">Cahaya menerobos celah  menciptakan volume dan kedalaman yang dramatis.</div>
 
@@ -1177,11 +1177,11 @@ const MATERIALS = [
     <div class="mod-gallery-2col">
       <div class="mod-img-placeholder" style="aspect-ratio:3/4">
         <div class="img-icon">🖼</div>
-        <div class="img-label">https://raw.githubusercontent.com/haydarahmed29/lensgoplus/main/images/materi/silhouette-1.jpg</div>
+        <div class="img-label">images/materi/silhouette-1.jpg</div>
       </div>
       <div class="mod-img-placeholder" style="aspect-ratio:3/4">
         <div class="img-icon">🖼</div>
-        <div class="img-label">https://raw.githubusercontent.com/haydarahmed29/lensgoplus/main/images/materi/silhouette-2.jpg</div>
+        <div class="img-label">images/materi/silhouette-2.jpg</div>
       </div>
     </div>
 
@@ -1189,11 +1189,11 @@ const MATERIALS = [
     <div class="mod-gallery-2col">
       <div class="mod-img-placeholder" style="aspect-ratio:3/4">
         <div class="img-icon">🖼</div>
-        <div class="img-label">https://raw.githubusercontent.com/haydarahmed29/lensgoplus/main/images/materi/golden-hour-1.jpg</div>
+        <div class="img-label">images/materi/golden-hour-1.jpg</div>
       </div>
       <div class="mod-img-placeholder" style="aspect-ratio:3/4">
         <div class="img-icon">🖼</div>
-        <div class="img-label">https://raw.githubusercontent.com/haydarahmed29/lensgoplus/main/images/materi/golden-hour-2.jpg</div>
+        <div class="img-label">images/materi/golden-hour-2.jpg</div>
       </div>
     </div>
 
@@ -1201,11 +1201,11 @@ const MATERIALS = [
     <div class="mod-gallery-2col">
       <div class="mod-img-placeholder" style="aspect-ratio:3/4">
         <div class="img-icon">🖼</div>
-        <div class="img-label">https://raw.githubusercontent.com/haydarahmed29/lensgoplus/main/images/materi/harsh-light-1.jpg</div>
+        <div class="img-label">images/materi/harsh-light-1.jpg</div>
       </div>
       <div class="mod-img-placeholder" style="aspect-ratio:3/4">
         <div class="img-icon">🖼</div>
-        <div class="img-label">https://raw.githubusercontent.com/haydarahmed29/lensgoplus/main/images/materi/harsh-light-2.jpg</div>
+        <div class="img-label">images/materi/harsh-light-2.jpg</div>
       </div>
     </div>
 
@@ -1219,14 +1219,14 @@ const MATERIALS = [
         <div class="mod-compare-label bad">😬 Asal Jepret</div>
         <div class="mod-img-placeholder" style="aspect-ratio:3/4;margin:0">
           <div class="img-icon">🖼</div>
-          <div class="img-label">https://raw.githubusercontent.com/haydarahmed29/lensgoplus/main/images/materi/angle-before.jpg</div>
+          <div class="img-label">images/materi/angle-before.jpg</div>
         </div>
       </div>
       <div class="mod-compare-col">
         <div class="mod-compare-label good">✨ Tau Angle Foto</div>
         <div class="mod-img-placeholder" style="aspect-ratio:3/4;margin:0">
           <div class="img-icon">🖼</div>
-          <div class="img-label">https://raw.githubusercontent.com/haydarahmed29/lensgoplus/main/images/materi/angle-after.jpg</div>
+          <div class="img-label">images/materi/angle-after.jpg</div>
         </div>
       </div>
     </div>
@@ -1260,11 +1260,11 @@ const MATERIALS = [
     <div class="mod-gallery-2col" style="margin-top:12px">
       <div class="mod-img-placeholder" style="aspect-ratio:3/4">
         <div class="img-icon">🖼</div>
-        <div class="img-label">https://raw.githubusercontent.com/haydarahmed29/lensgoplus/main/images/materi/low-angle-1.jpg</div>
+        <div class="img-label">images/materi/low-angle-1.jpg</div>
       </div>
       <div class="mod-img-placeholder" style="aspect-ratio:3/4">
         <div class="img-icon">🖼</div>
-        <div class="img-label">https://raw.githubusercontent.com/haydarahmed29/lensgoplus/main/images/materi/low-angle-2.jpg</div>
+        <div class="img-label">images/materi/low-angle-2.jpg</div>
       </div>
     </div>
     <div class="mod-img-caption">Low angle  subjek terlihat powerful dari sudut bawah.</div>
@@ -1298,11 +1298,11 @@ const MATERIALS = [
     <div class="mod-gallery-2col" style="margin-top:12px">
       <div class="mod-img-placeholder" style="aspect-ratio:3/4">
         <div class="img-icon">🖼</div>
-        <div class="img-label">https://raw.githubusercontent.com/haydarahmed29/lensgoplus/main/images/materi/eye-level-1.jpg</div>
+        <div class="img-label">images/materi/eye-level-1.jpg</div>
       </div>
       <div class="mod-img-placeholder" style="aspect-ratio:3/4">
         <div class="img-icon">🖼</div>
-        <div class="img-label">https://raw.githubusercontent.com/haydarahmed29/lensgoplus/main/images/materi/eye-level-2.jpg</div>
+        <div class="img-label">images/materi/eye-level-2.jpg</div>
       </div>
     </div>
     <div class="mod-img-caption">Eye level  koneksi langsung antara subjek dan penonton.</div>
@@ -1336,11 +1336,11 @@ const MATERIALS = [
     <div class="mod-gallery-2col" style="margin-top:12px">
       <div class="mod-img-placeholder" style="aspect-ratio:3/4">
         <div class="img-icon">🖼</div>
-        <div class="img-label">https://raw.githubusercontent.com/haydarahmed29/lensgoplus/main/images/materi/high-angle-1.jpg</div>
+        <div class="img-label">images/materi/high-angle-1.jpg</div>
       </div>
       <div class="mod-img-placeholder" style="aspect-ratio:3/4">
         <div class="img-icon">🖼</div>
-        <div class="img-label">https://raw.githubusercontent.com/haydarahmed29/lensgoplus/main/images/materi/high-angle-2.jpg</div>
+        <div class="img-label">images/materi/high-angle-2.jpg</div>
       </div>
     </div>
     <div class="mod-img-caption">High angle  perspektif dari atas memberikan kesan luas dan menyeluruh.</div>
@@ -1410,7 +1410,7 @@ const MATERIALS = [
 
     <div class="mod-img-placeholder" style="aspect-ratio:3/4">
       <div class="img-icon">🖼</div>
-      <div class="img-label">https://raw.githubusercontent.com/haydarahmed29/lensgoplus/main/images/materi/rule-of-thirds-grid.jpg</div>
+      <div class="img-label">images/materi/rule-of-thirds-grid.jpg</div>
     </div>
     <div class="mod-img-caption">Grid rule of thirds  objek ditempatkan di persimpangan garis, bukan di tengah.</div>
 
@@ -1459,13 +1459,13 @@ const MATERIALS = [
 
     <div class="mod-img-placeholder" style="aspect-ratio:4/3">
       <div class="img-icon">🖼</div>
-      <div class="img-label">https://raw.githubusercontent.com/haydarahmed29/lensgoplus/main/images/materi/rot-landscape-example.jpg</div>
+      <div class="img-label">images/materi/rot-landscape-example.jpg</div>
     </div>
     <div class="mod-img-caption">Rule of thirds pada foto landscape  horizon sejajar garis bawah, subjek di titik persimpangan.</div>
 
     <div class="mod-img-placeholder" style="aspect-ratio:3/4;margin-top:12px">
       <div class="img-icon">🖼</div>
-      <div class="img-label">https://raw.githubusercontent.com/haydarahmed29/lensgoplus/main/images/materi/rot-portrait-example.jpg</div>
+      <div class="img-label">images/materi/rot-portrait-example.jpg</div>
     </div>
     <div class="mod-img-caption">Foto portrait dengan rule of thirds  mata subjek berada di garis sepertiga bagian atas.</div>
 
@@ -1538,7 +1538,7 @@ const MATERIALS = [
 
     <div class="mod-img-placeholder" style="aspect-ratio:3/4">
       <div class="img-icon">🖼</div>
-      <div class="img-label">https://raw.githubusercontent.com/haydarahmed29/lensgoplus/main/images/materi/framing-arch-door.jpg</div>
+      <div class="img-label">images/materi/framing-arch-door.jpg</div>
     </div>
     <div class="mod-img-caption">Framing menggunakan spion mobil sebagai bingkai alami untuk subjek di dalam frame.</div>
 
@@ -1564,7 +1564,7 @@ const MATERIALS = [
 
     <div class="mod-img-placeholder" style="aspect-ratio:3/4;margin-top:16px">
       <div class="img-icon">🖼</div>
-      <div class="img-label">https://raw.githubusercontent.com/haydarahmed29/lensgoplus/main/images/materi/framing-nature-trees.jpg</div>
+      <div class="img-label">images/materi/framing-nature-trees.jpg</div>
     </div>
     <div class="mod-img-caption">Framing menggunakan elemen alam  celah pepohonan membingkai subjek di tengah.</div>
 
@@ -1598,14 +1598,14 @@ const MATERIALS = [
         <div class="mod-compare-label" style="background:var(--blue-dim);color:var(--blue)">👀 Amati Lingkungan</div>
         <div class="mod-img-placeholder" style="aspect-ratio:3/4;margin:0">
           <div class="img-icon">🖼</div>
-          <div class="img-label">https://raw.githubusercontent.com/haydarahmed29/lensgoplus/main/images/materi/leading-line-observe.jpg</div>
+          <div class="img-label">images/materi/leading-line-observe.jpg</div>
         </div>
       </div>
       <div class="mod-compare-col">
         <div class="mod-compare-label good">📸 Hasilnya</div>
         <div class="mod-img-placeholder" style="aspect-ratio:3/4;margin:0">
           <div class="img-icon">🖼</div>
-          <div class="img-label">https://raw.githubusercontent.com/haydarahmed29/lensgoplus/main/images/materi/leading-line-result.jpg</div>
+          <div class="img-label">images/materi/leading-line-result.jpg</div>
         </div>
       </div>
     </div>
@@ -1633,7 +1633,7 @@ const MATERIALS = [
 
     <div class="mod-img-placeholder" style="aspect-ratio:3/4;margin-top:16px">
       <div class="img-icon">🖼</div>
-      <div class="img-label">https://raw.githubusercontent.com/haydarahmed29/lensgoplus/main/images/materi/leading-line-environment.jpg</div>
+      <div class="img-label">images/materi/leading-line-environment.jpg</div>
     </div>
     <div class="mod-img-caption">Contoh pengaplikasian leading lines di lingkungan sekitar.</div>
 
@@ -1687,7 +1687,7 @@ const MATERIALS = [
 
     <div class="mod-img-placeholder" style="aspect-ratio:3/4;margin-top:14px">
       <div class="img-icon">🖼</div>
-      <div class="img-label">https://raw.githubusercontent.com/haydarahmed29/lensgoplus/main/images/materi/framing-leading-line-combo.jpg</div>
+      <div class="img-label">images/materi/framing-leading-line-combo.jpg</div>
     </div>
     <div class="mod-img-caption">Kombinasi framing + leading line  terowongan membingkai sekaligus mengarahkan mata ke subjek.</div>
 
@@ -1728,7 +1728,7 @@ const MATERIALS = [
 
     <div class="mod-img-placeholder" style="aspect-ratio:3/4">
       <div class="img-icon">🖼</div>
-      <div class="img-label">https://raw.githubusercontent.com/haydarahmed29/lensgoplus/main/images/materi/portrait-natural-expression.jpg</div>
+      <div class="img-label">images/materi/portrait-natural-expression.jpg</div>
     </div>
     <div class="mod-img-caption">Portrait natural  ekspresi autentik lahir saat subjek merasa nyaman.</div>
 
@@ -1752,7 +1752,7 @@ const MATERIALS = [
 
     <div class="mod-img-placeholder" style="aspect-ratio:16/9;margin-top:14px">
       <div class="img-icon">🖼</div>
-      <div class="img-label">https://raw.githubusercontent.com/haydarahmed29/lensgoplus/main/images/materi/portrait-ev-setting.jpg</div>
+      <div class="img-label">images/materi/portrait-ev-setting.jpg</div>
     </div>
     <div class="mod-img-caption"><strong>Note:</strong> Pengaturan EV saat Portrait.</div>
 
@@ -1789,7 +1789,7 @@ const MATERIALS = [
 
     <div class="mod-img-placeholder" style="aspect-ratio:4/3">
       <div class="img-icon">🖼</div>
-      <div class="img-label">https://raw.githubusercontent.com/haydarahmed29/lensgoplus/main/images/materi/portrait-shot-types.jpg</div>
+      <div class="img-label">images/materi/portrait-shot-types.jpg</div>
     </div>
 
     <div class="mod-table-wrap" style="margin-top:12px">
@@ -1882,7 +1882,7 @@ const MATERIALS = [
 
     <div class="mod-img-placeholder" style="aspect-ratio:3/4;margin-top:16px">
       <div class="img-icon">🖼</div>
-      <div class="img-label">https://raw.githubusercontent.com/haydarahmed29/lensgoplus/main/images/materi/portrait-background-adat.jpg</div>
+      <div class="img-label">images/materi/portrait-background-adat.jpg</div>
     </div>
     <div class="mod-img-caption">Background bangunan adat  perhatian sepenuhnya pada subjek.</div>
 
@@ -1931,7 +1931,7 @@ const MATERIALS = [
 
     <div class="mod-img-placeholder" style="aspect-ratio:4/3">
       <div class="img-icon">🖼</div>
-      <div class="img-label">https://raw.githubusercontent.com/haydarahmed29/lensgoplus/main/images/materi/street-authentic-moment.jpg</div>
+      <div class="img-label">images/materi/street-authentic-moment.jpg</div>
     </div>
     <div class="mod-img-caption">Street photography autentik  momen kehidupan sehari-hari yang tertangkap apa adanya.</div>
 
@@ -1955,7 +1955,7 @@ const MATERIALS = [
 
     <div class="mod-img-placeholder" style="aspect-ratio:4/3;margin-top:16px">
       <div class="img-icon">🖼</div>
-      <div class="img-label">https://raw.githubusercontent.com/haydarahmed29/lensgoplus/main/images/materi/street-hip-shot-technique.jpg</div>
+      <div class="img-label">images/materi/street-hip-shot-technique.jpg</div>
     </div>
     <div class="mod-img-caption">Teknik dari pinggul  kamera di tangan rendah, subjek tidak menyadari sedang difoto.</div>
 
@@ -1983,7 +1983,7 @@ const MATERIALS = [
 
     <div class="mod-img-placeholder" style="aspect-ratio:3/4;margin-top:16px">
       <div class="img-icon">🖼</div>
-      <div class="img-label">https://raw.githubusercontent.com/haydarahmed29/lensgoplus/main/images/materi/street-tele-candid.jpg</div>
+      <div class="img-label">images/materi/street-tele-candid.jpg</div>
     </div>
     <div class="mod-img-caption">Foto dengan lensa tele dari jarak jauh  subjek tidak sadar.</div>
 
@@ -2012,7 +2012,7 @@ const MATERIALS = [
 
     <div class="mod-img-placeholder" style="aspect-ratio:3/4;margin-top:16px">
       <div class="img-icon">🖼</div>
-      <div class="img-label">https://raw.githubusercontent.com/haydarahmed29/lensgoplus/main/images/materi/street-color-market.jpg</div>
+      <div class="img-label">images/materi/street-color-market.jpg</div>
     </div>
     <div class="mod-img-caption">Warna ikan yang diambil saat street photography.</div>
 
@@ -2080,7 +2080,7 @@ const MATERIALS = [
 
     <div class="mod-img-placeholder" style="aspect-ratio:4/3;margin-top:16px">
       <div class="img-icon">🖼</div>
-      <div class="img-label">https://raw.githubusercontent.com/haydarahmed29/lensgoplus/main/images/materi/street-night-city-lights.jpg</div>
+      <div class="img-label">images/materi/street-night-city-lights.jpg</div>
     </div>
     <div class="mod-img-caption">Street photography malam  cahaya buatan kota menciptakan suasana dramatis.</div>
 
@@ -2125,31 +2125,31 @@ const MATERIALS = [
     <div class="mod-gallery-2col">
       <div class="mod-img-placeholder" style="aspect-ratio:3/4">
         <div class="img-icon">🖼</div>
-        <div class="img-label">https://raw.githubusercontent.com/haydarahmed29/lensgoplus/main/images/materi/street-fav-1.jpg</div>
+        <div class="img-label">images/materi/street-fav-1.jpg</div>
       </div>
       <div class="mod-img-placeholder" style="aspect-ratio:3/4">
         <div class="img-icon">🖼</div>
-        <div class="img-label">https://raw.githubusercontent.com/haydarahmed29/lensgoplus/main/images/materi/street-fav-2.jpg</div>
-      </div>
-    </div>
-    <div class="mod-gallery-2col" style="margin-top:10px">
-      <div class="mod-img-placeholder" style="aspect-ratio:3/4">
-        <div class="img-icon">🖼</div>
-        <div class="img-label">https://raw.githubusercontent.com/haydarahmed29/lensgoplus/main/images/materi/street-fav-3.jpg</div>
-      </div>
-      <div class="mod-img-placeholder" style="aspect-ratio:3/4">
-        <div class="img-icon">🖼</div>
-        <div class="img-label">https://raw.githubusercontent.com/haydarahmed29/lensgoplus/main/images/materi/street-fav-4.jpg</div>
+        <div class="img-label">images/materi/street-fav-2.jpg</div>
       </div>
     </div>
     <div class="mod-gallery-2col" style="margin-top:10px">
       <div class="mod-img-placeholder" style="aspect-ratio:3/4">
         <div class="img-icon">🖼</div>
-        <div class="img-label">https://raw.githubusercontent.com/haydarahmed29/lensgoplus/main/images/materi/street-fav-5.jpg</div>
+        <div class="img-label">images/materi/street-fav-3.jpg</div>
       </div>
       <div class="mod-img-placeholder" style="aspect-ratio:3/4">
         <div class="img-icon">🖼</div>
-        <div class="img-label">https://raw.githubusercontent.com/haydarahmed29/lensgoplus/main/images/materi/street-fav-6.jpg</div>
+        <div class="img-label">images/materi/street-fav-4.jpg</div>
+      </div>
+    </div>
+    <div class="mod-gallery-2col" style="margin-top:10px">
+      <div class="mod-img-placeholder" style="aspect-ratio:3/4">
+        <div class="img-icon">🖼</div>
+        <div class="img-label">images/materi/street-fav-5.jpg</div>
+      </div>
+      <div class="mod-img-placeholder" style="aspect-ratio:3/4">
+        <div class="img-icon">🖼</div>
+        <div class="img-label">images/materi/street-fav-6.jpg</div>
       </div>
     </div>
 
@@ -2184,7 +2184,7 @@ const MATERIALS = [
         <div class="mod-compare-label bad">😬 Sebelum Styling</div>
         <div class="mod-img-placeholder" style="aspect-ratio:3/4;margin:0">
           <div class="img-icon">🖼</div>
-          <div class="img-label">https://raw.githubusercontent.com/haydarahmed29/lensgoplus/main/images/materi/food-before-styling.jpg</div>
+          <div class="img-label">images/materi/food-before-styling.jpg</div>
         </div>
         <div class="mod-img-caption" style="margin-top:6px;font-size:11px">Meja makan biasa tanpa penataan khusus.</div>
       </div>
@@ -2192,7 +2192,7 @@ const MATERIALS = [
         <div class="mod-compare-label good">✨ Sesudah Styling</div>
         <div class="mod-img-placeholder" style="aspect-ratio:3/4;margin:0">
           <div class="img-icon">🖼</div>
-          <div class="img-label">https://raw.githubusercontent.com/haydarahmed29/lensgoplus/main/images/materi/food-after-styling.jpg</div>
+          <div class="img-label">images/materi/food-after-styling.jpg</div>
         </div>
         <div class="mod-img-caption" style="margin-top:6px;font-size:11px">Props, location, dan detail diperhatikan. Makanan yang sama, hasil jauh berbeda.</div>
       </div>
@@ -2209,7 +2209,7 @@ const MATERIALS = [
 
     <div class="mod-img-placeholder" style="aspect-ratio:3/4;margin-top:12px">
       <div class="img-icon">🖼</div>
-      <div class="img-label">https://raw.githubusercontent.com/haydarahmed29/lensgoplus/main/images/materi/food-flatlay-example.jpg</div>
+      <div class="img-label">images/materi/food-flatlay-example.jpg</div>
     </div>
     <div class="mod-img-caption">Flat lay  cocok untuk makanan dengan komposisi yang menarik dilihat dari atas.</div>
 
@@ -2219,7 +2219,7 @@ const MATERIALS = [
 
     <div class="mod-img-placeholder" style="aspect-ratio:3/4;margin-top:12px">
       <div class="img-icon">🖼</div>
-      <div class="img-label">https://raw.githubusercontent.com/haydarahmed29/lensgoplus/main/images/materi/food-45degree-example.jpg</div>
+      <div class="img-label">images/materi/food-45degree-example.jpg</div>
     </div>
     <div class="mod-img-caption">45° angle  tekstur dan lapisan makanan terlihat jelas, terasa lebih "nyata".</div>
 
@@ -2359,10 +2359,10 @@ const MATERIALS = [
       <div class="ba-label-row"><span class="ba-label bad">Before</span><span class="ba-label good">After</span></div>
       <div class="ba-slider-box" style="aspect-ratio:4/3">
         <div class="ba-img ba-before">
-          <div class="ba-placeholder"><div class="img-icon">🖼</div><div class="img-label">https://raw.githubusercontent.com/haydarahmed29/lensgoplus/main/images/materi/edit-crop-before.jpg</div></div>
+          <div class="ba-placeholder"><div class="img-icon">🖼</div><div class="img-label">images/materi/edit-crop-before.jpg</div></div>
         </div>
         <div class="ba-img ba-after">
-          <div class="ba-placeholder"><div class="img-icon">🖼</div><div class="img-label">https://raw.githubusercontent.com/haydarahmed29/lensgoplus/main/images/materi/edit-crop-after.jpg</div></div>
+          <div class="ba-placeholder"><div class="img-icon">🖼</div><div class="img-label">images/materi/edit-crop-after.jpg</div></div>
         </div>
         <div class="ba-divider"></div>
         <div class="ba-handle"><div class="ba-handle-icon">⇔</div></div>
@@ -2400,10 +2400,10 @@ const MATERIALS = [
       <div class="ba-label-row"><span class="ba-label bad">Before</span><span class="ba-label good">After</span></div>
       <div class="ba-slider-box" style="aspect-ratio:3/4">
         <div class="ba-img ba-before">
-          <div class="ba-placeholder"><div class="img-icon">🖼</div><div class="img-label">https://raw.githubusercontent.com/haydarahmed29/lensgoplus/main/images/materi/edit-exposure-before.jpg</div></div>
+          <div class="ba-placeholder"><div class="img-icon">🖼</div><div class="img-label">images/materi/edit-exposure-before.jpg</div></div>
         </div>
         <div class="ba-img ba-after">
-          <div class="ba-placeholder"><div class="img-icon">🖼</div><div class="img-label">https://raw.githubusercontent.com/haydarahmed29/lensgoplus/main/images/materi/edit-exposure-after.jpg</div></div>
+          <div class="ba-placeholder"><div class="img-icon">🖼</div><div class="img-label">images/materi/edit-exposure-after.jpg</div></div>
         </div>
         <div class="ba-divider"></div>
         <div class="ba-handle"><div class="ba-handle-icon">⇔</div></div>
@@ -2437,10 +2437,10 @@ const MATERIALS = [
       <div class="ba-label-row"><span class="ba-label bad">Before</span><span class="ba-label good">After</span></div>
       <div class="ba-slider-box" style="aspect-ratio:3/4">
         <div class="ba-img ba-before">
-          <div class="ba-placeholder"><div class="img-icon">🖼</div><div class="img-label">https://raw.githubusercontent.com/haydarahmed29/lensgoplus/main/images/materi/edit-color-before.jpg</div></div>
+          <div class="ba-placeholder"><div class="img-icon">🖼</div><div class="img-label">images/materi/edit-color-before.jpg</div></div>
         </div>
         <div class="ba-img ba-after">
-          <div class="ba-placeholder"><div class="img-icon">🖼</div><div class="img-label">https://raw.githubusercontent.com/haydarahmed29/lensgoplus/main/images/materi/edit-color-after.jpg</div></div>
+          <div class="ba-placeholder"><div class="img-icon">🖼</div><div class="img-label">images/materi/edit-color-after.jpg</div></div>
         </div>
         <div class="ba-divider"></div>
         <div class="ba-handle"><div class="ba-handle-icon">⇔</div></div>
@@ -2477,10 +2477,10 @@ const MATERIALS = [
       <div class="ba-label-row"><span class="ba-label bad">Before</span><span class="ba-label good">After</span></div>
       <div class="ba-slider-box" style="aspect-ratio:3/4">
         <div class="ba-img ba-before">
-          <div class="ba-placeholder"><div class="img-icon">🖼</div><div class="img-label">https://raw.githubusercontent.com/haydarahmed29/lensgoplus/main/images/materi/edit-tone-before.jpg</div></div>
+          <div class="ba-placeholder"><div class="img-icon">🖼</div><div class="img-label">images/materi/edit-tone-before.jpg</div></div>
         </div>
         <div class="ba-img ba-after">
-          <div class="ba-placeholder"><div class="img-icon">🖼</div><div class="img-label">https://raw.githubusercontent.com/haydarahmed29/lensgoplus/main/images/materi/edit-tone-after.jpg</div></div>
+          <div class="ba-placeholder"><div class="img-icon">🖼</div><div class="img-label">images/materi/edit-tone-after.jpg</div></div>
         </div>
         <div class="ba-divider"></div>
         <div class="ba-handle"><div class="ba-handle-icon">⇔</div></div>
@@ -2520,14 +2520,14 @@ const MATERIALS = [
       <div>
         <div class="mod-img-placeholder" style="aspect-ratio:3/4">
           <div class="img-icon">🖼</div>
-          <div class="img-label">https://raw.githubusercontent.com/haydarahmed29/lensgoplus/main/images/materi/perspective-before.jpg</div>
+          <div class="img-label">images/materi/perspective-before.jpg</div>
         </div>
         <div class="mod-img-caption">Sebelum  bangunan terlihat condong.</div>
       </div>
       <div>
         <div class="mod-img-placeholder" style="aspect-ratio:3/4">
           <div class="img-icon">🖼</div>
-          <div class="img-label">https://raw.githubusercontent.com/haydarahmed29/lensgoplus/main/images/materi/perspective-after.jpg</div>
+          <div class="img-label">images/materi/perspective-after.jpg</div>
         </div>
         <div class="mod-img-caption">Sesudah  garis vertikal tegak, lebih megah.</div>
       </div>
@@ -2634,7 +2634,7 @@ const MATERIALS = [
 
     <div class="mod-img-placeholder" style="aspect-ratio:3/4;margin-top:16px">
       <div class="img-icon">🖼</div>
-      <div class="img-label">https://raw.githubusercontent.com/haydarahmed29/lensgoplus/main/images/materi/moodboard-referensi.jpg</div>
+      <div class="img-label">images/materi/moodboard-referensi.jpg</div>
     </div>
     <div class="mod-img-caption">Moodboard referensi  kumpulan foto favorit yang menunjukkan pola estetika pribadimu.</div>
 
@@ -2678,7 +2678,7 @@ const MATERIALS = [
 
     <div class="mod-img-placeholder" style="aspect-ratio:3/4;margin-top:14px">
       <div class="img-icon">🖼</div>
-      <div class="img-label">https://raw.githubusercontent.com/haydarahmed29/lensgoplus/main/images/materi/feed-grouped-example.jpg</div>
+      <div class="img-label">images/materi/feed-grouped-example.jpg</div>
     </div>
     <div class="mod-img-caption">Contoh feed IG yang terkelompok  foto dari tema yang sama diposting berdekatan.</div>
 
@@ -2746,7 +2746,7 @@ const MATERIALS = [
 
     <div class="mod-img-placeholder" style="aspect-ratio:3/4;margin-top:16px">
       <div class="img-icon">🖼</div>
-      <div class="img-label">https://raw.githubusercontent.com/haydarahmed29/lensgoplus/main/images/materi/feed-consistent-color.jpg</div>
+      <div class="img-label">images/materi/feed-consistent-color.jpg</div>
     </div>
     <div class="mod-img-caption">Contoh feed IG dengan pola warna konsisten  terasa seperti satu kesatuan meski subjeknya berbeda.</div>
 
@@ -2765,11 +2765,11 @@ const MATERIALS = [
     <div class="mod-gallery-2col" style="margin-top:16px">
       <div class="mod-img-placeholder" style="aspect-ratio:3/4">
         <div class="img-icon">🖼</div>
-        <div class="img-label">https://raw.githubusercontent.com/haydarahmed29/lensgoplus/main/images/materi/feed-consistent.jpg</div>
+        <div class="img-label">images/materi/feed-consistent.jpg</div>
       </div>
       <div class="mod-img-placeholder" style="aspect-ratio:3/4">
         <div class="img-icon">🖼</div>
-        <div class="img-label">https://raw.githubusercontent.com/haydarahmed29/lensgoplus/main/images/materi/feed-inconsistent.jpg</div>
+        <div class="img-label">images/materi/feed-inconsistent.jpg</div>
       </div>
     </div>
     <div class="mod-img-caption">Feed IG yang konsisten vs tidak konsisten  perbedaannya langsung terasa dalam 3 detik pertama.</div>
@@ -2836,7 +2836,7 @@ const MISSIONS = [
 
 const RESOURCES = {
   template: [
-    {id:"t1", name:"Instagram Story", sub:"Template desain untuk IG Story", icon:"https://raw.githubusercontent.com/haydarahmed29/lensgoplus/main/images/icons/story-logo.png", detail:{
+    {id:"t1", name:"Instagram Story", sub:"Template desain untuk IG Story", icon:"images/icons/story-logo.png", detail:{
       eyebrow:"Template · Canva",
       title:"Instagram Story",
       desc:"Kumpulan template IG Story siap pakai dengan desain minimal dan profesional. Tersedia dalam 2 kategori  Typography dan Grid  semua bisa digunakan langsung tanpa perlu upgrade Canva Pro.",
@@ -2846,7 +2846,7 @@ const RESOURCES = {
           id:"story-typo",
           title:"CreativeStories Typography",
           desc:"Dapatkan 7 template Typography untuk IG Story yang bisa langsung kamu gunakan tanpa perlu upgrade ke Canva Pro. Desain bersih dengan komposisi teks yang kuat.",
-          slides:["https://raw.githubusercontent.com/haydarahmed29/lensgoplus/main/images/template/story-typo-1.jpg","https://raw.githubusercontent.com/haydarahmed29/lensgoplus/main/images/template/story-typo-2.jpg","https://raw.githubusercontent.com/haydarahmed29/lensgoplus/main/images/template/story-typo-3.jpg","https://raw.githubusercontent.com/haydarahmed29/lensgoplus/main/images/template/story-typo-4.jpg","https://raw.githubusercontent.com/haydarahmed29/lensgoplus/main/images/template/story-typo-5.jpg","https://raw.githubusercontent.com/haydarahmed29/lensgoplus/main/images/template/story-typo-6.jpg","https://raw.githubusercontent.com/haydarahmed29/lensgoplus/main/images/template/story-typo-7.jpg"],
+          slides:["images/template/story-typo-1.jpg","images/template/story-typo-2.jpg","images/template/story-typo-3.jpg","images/template/story-typo-4.jpg","images/template/story-typo-5.jpg","images/template/story-typo-6.jpg","images/template/story-typo-7.jpg"],
           btnLabel:"Gunakan Template Canva",
           url:"https://canva.com"
         },
@@ -2854,13 +2854,13 @@ const RESOURCES = {
           id:"story-grid",
           title:"CreativeStories Grid",
           desc:"Dapatkan 7 template Grid untuk IG Story yang bisa langsung kamu gunakan tanpa perlu upgrade ke Canva Pro. Layout grid rapi untuk konten foto dan kolase.",
-          slides:["https://raw.githubusercontent.com/haydarahmed29/lensgoplus/main/images/template/story-grid-1.jpg","https://raw.githubusercontent.com/haydarahmed29/lensgoplus/main/images/template/story-grid-2.jpg","https://raw.githubusercontent.com/haydarahmed29/lensgoplus/main/images/template/story-grid-3.jpg","https://raw.githubusercontent.com/haydarahmed29/lensgoplus/main/images/template/story-grid-4.jpg","https://raw.githubusercontent.com/haydarahmed29/lensgoplus/main/images/template/story-grid-5.jpg","https://raw.githubusercontent.com/haydarahmed29/lensgoplus/main/images/template/story-grid-6.jpg","https://raw.githubusercontent.com/haydarahmed29/lensgoplus/main/images/template/story-grid-7.jpg"],
+          slides:["images/template/story-grid-1.jpg","images/template/story-grid-2.jpg","images/template/story-grid-3.jpg","images/template/story-grid-4.jpg","images/template/story-grid-5.jpg","images/template/story-grid-6.jpg","images/template/story-grid-7.jpg"],
           btnLabel:"Gunakan Template Canva",
           url:"https://canva.com"
         }
       ]
     }},
-    {id:"t2", name:"Instagram Feed", sub:"Template desain untuk IG Feed", icon:"https://raw.githubusercontent.com/haydarahmed29/lensgoplus/main/images/icons/feed-logo.png", detail:{
+    {id:"t2", name:"Instagram Feed", sub:"Template desain untuk IG Feed", icon:"images/icons/feed-logo.png", detail:{
       eyebrow:"Template · Canva",
       title:"Instagram Feed",
       desc:"Kumpulan template Instagram Feed dengan ratio 3:4, siap pakai dan bisa langsung diedit di Canva tanpa perlu upgrade ke Canva Pro.",
@@ -2870,73 +2870,73 @@ const RESOURCES = {
           id:"feed-frame",
           title:"Frame Border",
           desc:"Template Feed dengan bingkai garis tegas di setiap sisi foto. Cocok untuk tampilan yang bersih, minimalis, dan terstruktur. Tersedia 4 variasi desain.",
-          slides:["https://raw.githubusercontent.com/haydarahmed29/lensgoplus/main/images/template/feed-frame-1.jpg","https://raw.githubusercontent.com/haydarahmed29/lensgoplus/main/images/template/feed-frame-2.jpg","https://raw.githubusercontent.com/haydarahmed29/lensgoplus/main/images/template/feed-frame-3.jpg","https://raw.githubusercontent.com/haydarahmed29/lensgoplus/main/images/template/feed-frame-4.jpg"],
+          slides:["images/template/feed-frame-1.jpg","images/template/feed-frame-2.jpg","images/template/feed-frame-3.jpg","images/template/feed-frame-4.jpg"],
           ratio:"3/4", btnLabel:"Gunakan Template Canva", url:"https://canva.com"
         },
         {
           id:"feed-rounded",
           title:"Rounded Frame Border",
           desc:"Versi lembut dari Frame Border dengan sudut membulat. Memberikan kesan yang lebih hangat dan personal. Tersedia 4 variasi desain.",
-          slides:["https://raw.githubusercontent.com/haydarahmed29/lensgoplus/main/images/template/feed-rounded-1.jpg","https://raw.githubusercontent.com/haydarahmed29/lensgoplus/main/images/template/feed-rounded-2.jpg","https://raw.githubusercontent.com/haydarahmed29/lensgoplus/main/images/template/feed-rounded-3.jpg","https://raw.githubusercontent.com/haydarahmed29/lensgoplus/main/images/template/feed-rounded-4.jpg"],
+          slides:["images/template/feed-rounded-1.jpg","images/template/feed-rounded-2.jpg","images/template/feed-rounded-3.jpg","images/template/feed-rounded-4.jpg"],
           ratio:"3/4", btnLabel:"Gunakan Template Canva", url:"https://canva.com"
         },
         {
           id:"feed-grid",
           title:"Kind of Grid",
           desc:"Template dengan elemen grid yang memecah foto menjadi komposisi visual yang unik. Ideal untuk feed yang dinamis dan berbeda dari yang lain. Tersedia 5 variasi desain.",
-          slides:["https://raw.githubusercontent.com/haydarahmed29/lensgoplus/main/images/template/feed-grid-1.jpg","https://raw.githubusercontent.com/haydarahmed29/lensgoplus/main/images/template/feed-grid-2.jpg","https://raw.githubusercontent.com/haydarahmed29/lensgoplus/main/images/template/feed-grid-3.jpg","https://raw.githubusercontent.com/haydarahmed29/lensgoplus/main/images/template/feed-grid-4.jpg","https://raw.githubusercontent.com/haydarahmed29/lensgoplus/main/images/template/feed-grid-5.jpg"],
+          slides:["images/template/feed-grid-1.jpg","images/template/feed-grid-2.jpg","images/template/feed-grid-3.jpg","images/template/feed-grid-4.jpg","images/template/feed-grid-5.jpg"],
           ratio:"3/4", btnLabel:"Gunakan Template Canva", url:"https://canva.com"
         },
         {
           id:"feed-carousel",
           title:"Aesthetic Carousel",
           desc:"Template carousel estetik yang dirancang untuk multi-slide. Cocok untuk storytelling visual, behind the scenes, atau seri foto bertema. Tersedia 5 variasi desain.",
-          slides:["https://raw.githubusercontent.com/haydarahmed29/lensgoplus/main/images/template/feed-carousel-1.jpg","https://raw.githubusercontent.com/haydarahmed29/lensgoplus/main/images/template/feed-carousel-2.jpg","https://raw.githubusercontent.com/haydarahmed29/lensgoplus/main/images/template/feed-carousel-3.jpg","https://raw.githubusercontent.com/haydarahmed29/lensgoplus/main/images/template/feed-carousel-4.jpg"],
+          slides:["images/template/feed-carousel-1.jpg","images/template/feed-carousel-2.jpg","images/template/feed-carousel-3.jpg","images/template/feed-carousel-4.jpg","images/template/feed-carousel-5.jpg"],
           ratio:"3/4", btnLabel:"Gunakan Template Canva", url:"https://canva.com"
         }
       ]
     }},
   ],
   presets: [
-    {id:"p1", name:"Get Free 7 Lightroom Presets by 101", sub:"Lightroom Mobile · 7 Preset", logo:"https://raw.githubusercontent.com/haydarahmed29/lensgoplus/main/images/icons/lightroom-logo.png", logoSize:"40px", url:"https://drive.google.com", detail:{
+    {id:"p1", name:"Get Free 7 Lightroom Presets by 101", sub:"Lightroom Mobile · 7 Preset", logo:"images/icons/lightroom-logo.png", logoSize:"40px", url:"https://drive.google.com", detail:{
       eyebrow:"Presets · Lightroom Mobile",
       title:"7 Lightroom Presets by 101",
       desc:"Kamu mendapat 7 Presets dari @101.presets. Presets ini dibuat sesuai dengan berbagai macam style dan karakter, mulai dari black and white hingga suasana malam hari. Cocok untuk street, portrait, dan landscape.",
       action:"Download Presets", url:"https://drive.google.com",
       baSliders:[
-        {id:"lr-bwnat",  label:"BW NAT",  before:"https://raw.githubusercontent.com/haydarahmed29/lensgoplus/main/images/presets/lr-bwnat-before.png",  after:"https://raw.githubusercontent.com/haydarahmed29/lensgoplus/main/images/presets/lr-bwnat-after.png"},
-        {id:"lr-bwhc",   label:"BW HC",   before:"https://raw.githubusercontent.com/haydarahmed29/lensgoplus/main/images/presets/lr-bwhc-before.png",   after:"https://raw.githubusercontent.com/haydarahmed29/lensgoplus/main/images/presets/lr-bwhc-after.png"},
-        {id:"lr-shino",  label:"SHINO",   before:"https://raw.githubusercontent.com/haydarahmed29/lensgoplus/main/images/presets/lr-shino-before.png",  after:"https://raw.githubusercontent.com/haydarahmed29/lensgoplus/main/images/presets/lr-shino-after.png"},
-        {id:"lr-edge",   label:"EDGE",    before:"https://raw.githubusercontent.com/haydarahmed29/lensgoplus/main/images/presets/lr-edge-before.png",   after:"https://raw.githubusercontent.com/haydarahmed29/lensgoplus/main/images/presets/lr-edge-after.png"},
-        {id:"lr-muse",   label:"MUSE",    before:"https://raw.githubusercontent.com/haydarahmed29/lensgoplus/main/images/presets/lr-muse-before.png",   after:"https://raw.githubusercontent.com/haydarahmed29/lensgoplus/main/images/presets/lr-muse-after.png"},
-        {id:"lr-kind",   label:"KIND",    before:"https://raw.githubusercontent.com/haydarahmed29/lensgoplus/main/images/presets/lr-kind-before.png",   after:"https://raw.githubusercontent.com/haydarahmed29/lensgoplus/main/images/presets/lr-kind-after.png"},
-        {id:"lr-owl",    label:"OWL",     before:"https://raw.githubusercontent.com/haydarahmed29/lensgoplus/main/images/presets/lr-owl-before.png",    after:"https://raw.githubusercontent.com/haydarahmed29/lensgoplus/main/images/presets/lr-owl-after.png"},
+        {id:"lr-bwnat",  label:"BW NAT",  before:"images/presets/lr-bwnat-before.jpg",  after:"images/presets/lr-bwnat-after.jpg"},
+        {id:"lr-bwhc",   label:"BW HC",   before:"images/presets/lr-bwhc-before.jpg",   after:"images/presets/lr-bwhc-after.jpg"},
+        {id:"lr-shino",  label:"SHINO",   before:"images/presets/lr-shino-before.jpg",  after:"images/presets/lr-shino-after.jpg"},
+        {id:"lr-edge",   label:"EDGE",    before:"images/presets/lr-edge-before.jpg",   after:"images/presets/lr-edge-after.jpg"},
+        {id:"lr-muse",   label:"MUSE",    before:"images/presets/lr-muse-before.jpg",   after:"images/presets/lr-muse-after.jpg"},
+        {id:"lr-kind",   label:"KIND",    before:"images/presets/lr-kind-before.jpg",   after:"images/presets/lr-kind-after.jpg"},
+        {id:"lr-owl",    label:"OWL",     before:"images/presets/lr-owl-before.jpg",    after:"images/presets/lr-owl-after.jpg"},
       ],
       hasPromo: true,
       promoFirst: false
     }},
-    {id:"p2", name:"Get Free 7 VSCO Recipes by 101", sub:"VSCO · 7 Recipes", logo:"https://raw.githubusercontent.com/haydarahmed29/lensgoplus/main/images/icons/vsco-logo.png", logoSize:"40px", url:"https://drive.google.com", detail:{
+    {id:"p2", name:"Get Free 7 VSCO Recipes by 101", sub:"VSCO · 7 Recipes", logo:"images/icons/vsco-logo.png", logoSize:"40px", url:"https://drive.google.com", detail:{
       eyebrow:"Presets · VSCO",
       title:"7 VSCO Recipes by 101",
       desc:"7 resep VSCO dari @101.presets dengan kombinasi filter dan adjustment yang sudah dikalibrasi. Tone film yang natural untuk foto sehari-hari — cukup terapkan recipe dan hasilnya langsung konsisten.",
       action:"Download VSCO Recipes", url:"https://drive.google.com",
-      slides:["https://raw.githubusercontent.com/haydarahmed29/lensgoplus/main/images/presets/vsco-1.jpg","https://raw.githubusercontent.com/haydarahmed29/lensgoplus/main/images/presets/vsco-2.jpg","https://raw.githubusercontent.com/haydarahmed29/lensgoplus/main/images/presets/vsco-3.jpg","https://raw.githubusercontent.com/haydarahmed29/lensgoplus/main/images/presets/vsco-4.jpg","https://raw.githubusercontent.com/haydarahmed29/lensgoplus/main/images/presets/vsco-5.jpg","https://raw.githubusercontent.com/haydarahmed29/lensgoplus/main/images/presets/vsco-6.jpg","https://raw.githubusercontent.com/haydarahmed29/lensgoplus/main/images/presets/vsco-7.jpg"],
+      slides:["images/presets/vsco-1.jpg","images/presets/vsco-2.jpg","images/presets/vsco-3.jpg","images/presets/vsco-4.jpg","images/presets/vsco-5.jpg","images/presets/vsco-6.jpg","images/presets/vsco-7.jpg"],
       ratio:"3/4"
     }},
-    {id:"p3", name:"Get Free 7 Adjustment Gallery by 101", sub:"Gallery Phone · 7 Adjustment", logo:"https://raw.githubusercontent.com/haydarahmed29/lensgoplus/main/images/icons/gallery-logo.png", logoSize:"40px", url:"https://drive.google.com", detail:{
+    {id:"p3", name:"Get Free 7 Adjustment Gallery by 101", sub:"Gallery Phone · 7 Adjustment", logo:"images/icons/gallery-logo.png", logoSize:"40px", url:"https://drive.google.com", detail:{
       eyebrow:"Presets · Gallery Phone",
       title:"7 Adjustment Gallery by 101",
       desc:"Berbeda dengan yang sebelumnya, color correction ini dibuat tanpa aplikasi tambahan. Cukup gunakan Gallery bawaan HP kamu untuk menerapkan 7 adjustment preset ini secara langsung dan gratis.",
       action:"Download Gallery Adjustment", url:"https://drive.google.com",
-      slides:["https://raw.githubusercontent.com/haydarahmed29/lensgoplus/main/images/presets/gallery-1.jpg","https://raw.githubusercontent.com/haydarahmed29/lensgoplus/main/images/presets/gallery-2.jpg","https://raw.githubusercontent.com/haydarahmed29/lensgoplus/main/images/presets/gallery-3.jpg","https://raw.githubusercontent.com/haydarahmed29/lensgoplus/main/images/presets/gallery-4.jpg","https://raw.githubusercontent.com/haydarahmed29/lensgoplus/main/images/presets/gallery-5.jpg","https://raw.githubusercontent.com/haydarahmed29/lensgoplus/main/images/presets/gallery-6.jpg","https://raw.githubusercontent.com/haydarahmed29/lensgoplus/main/images/presets/gallery-7.jpg"],
+      slides:["images/presets/gallery-1.jpg","images/presets/gallery-2.jpg","images/presets/gallery-3.jpg","images/presets/gallery-4.jpg","images/presets/gallery-5.jpg","images/presets/gallery-6.jpg","images/presets/gallery-7.jpg"],
       ratio:"3/4"
     }},
-    {id:"p4", name:"Get Free 7 Snapseed Look by 101", sub:"Snapseed · 7 Look", logo:"https://raw.githubusercontent.com/haydarahmed29/lensgoplus/main/images/icons/snapseed-logo.png", logoSize:"40px", url:"https://drive.google.com", detail:{
+    {id:"p4", name:"Get Free 7 Snapseed Look by 101", sub:"Snapseed · 7 Look", logo:"images/icons/snapseed-logo.png", logoSize:"40px", url:"https://drive.google.com", detail:{
       eyebrow:"Presets · Snapseed",
       title:"7 Snapseed Look by 101",
       desc:"Cukup download Snapseed dan klik link atau scan QR yang tersedia, kamu akan langsung mendapat look yang sama. 7 look pilihan dari @101.presets dengan berbagai mood dari clean hingga moody.",
       action:"Download Snapseed Look", url:"https://drive.google.com",
-      slides:["https://raw.githubusercontent.com/haydarahmed29/lensgoplus/main/images/presets/snapseed-1.jpg","https://raw.githubusercontent.com/haydarahmed29/lensgoplus/main/images/presets/snapseed-2.jpg","https://raw.githubusercontent.com/haydarahmed29/lensgoplus/main/images/presets/snapseed-3.jpg","https://raw.githubusercontent.com/haydarahmed29/lensgoplus/main/images/presets/snapseed-4.jpg","https://raw.githubusercontent.com/haydarahmed29/lensgoplus/main/images/presets/snapseed-5.jpg","https://raw.githubusercontent.com/haydarahmed29/lensgoplus/main/images/presets/snapseed-6.jpg","https://raw.githubusercontent.com/haydarahmed29/lensgoplus/main/images/presets/snapseed-7.jpg"],
+      slides:["images/presets/snapseed-1.jpg","images/presets/snapseed-2.jpg","images/presets/snapseed-3.jpg","images/presets/snapseed-4.jpg","images/presets/snapseed-5.jpg","images/presets/snapseed-6.jpg","images/presets/snapseed-7.jpg"],
       ratio:"3/4"
     }},
   ],
@@ -3226,7 +3226,6 @@ function openModule(id) {
   document.getElementById('mod-title').textContent = m.isBonus ? `🎁 ${m.title}` : m.title;
   document.getElementById('mod-time-badge').textContent = `⏱ ${m.read_time}`;
   document.getElementById('mod-content').innerHTML = m.content;
-  setTimeout(() => loadImages(document.getElementById('mod-content')), 50);
   const isDone = state.gamification.doneMaterials.includes(id);
   const btn = document.getElementById('mod-finish-btn');
   btn.textContent = isDone ? '✓ Sudah Selesai' : 'Tandai Selesai ✓';
@@ -3511,8 +3510,6 @@ function openResourceDetail(type, id) {
     </div>`;
   document.getElementById('mod-time-badge').textContent = '';
   document.getElementById('mod-content').innerHTML = mainContent;
-  loadImages(document.getElementById('mod-content'));
-  loadImages(document.getElementById('mod-title'));
 
   const btn = document.getElementById('mod-finish-btn');
   if (d.subtopics || d.baSliders) {
@@ -3845,30 +3842,6 @@ function copyVoucher() {
     if (btn) { btn.textContent = 'Tersalin ✓'; setTimeout(() => btn.textContent = 'Salin', 2000); }
   }).catch(() => {
     showToast('Kode: LensGo37', '🎟', ' salin manual');
-  });
-}
-
-function loadImages(container) {
-  if (!container) return;
-  // Convert mod-img-placeholder with img-label to actual img
-  container.querySelectorAll('.mod-img-placeholder, .ba-placeholder').forEach(ph => {
-    const label = ph.querySelector('.img-label');
-    const icon = ph.querySelector('.img-icon');
-    if (label) {
-      const src = label.textContent.trim();
-      if (src && src.startsWith('http')) {
-        const img = document.createElement('img');
-        img.src = src;
-        img.style.cssText = 'width:100%;height:100%;object-fit:cover;border-radius:var(--r-lg);';
-        img.onerror = function() {
-          if (icon) icon.style.opacity = '.4';
-          label.style.display = 'block';
-          this.remove();
-        };
-        if (icon) icon.style.display = 'none';
-        ph.insertBefore(img, ph.firstChild);
-      }
-    }
   });
 }
 

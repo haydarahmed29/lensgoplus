@@ -1,8 +1,8 @@
 const CACHE_NAME = 'lensgoplus-v1';
 const ASSETS = [
-  '/lensgoplus/',
-  '/lensgoplus/index.html',
-  '/lensgoplus/manifest.json'
+  '/',
+  '/index.html',
+  '/manifest.json'
 ];
 
 self.addEventListener('install', e => {

@@ -449,7 +449,9 @@ a{color:inherit;text-decoration:none;}
 /* ── RESOURCE SLIDESHOW ─────────────────────────────── */
 .res-slideshow{width:100%;overflow:hidden;border-radius:var(--r-lg);border:1px solid var(--border);background:var(--raised);}
 .res-slideshow-track{display:flex;transition:transform .3s ease;will-change:transform;}
-.res-slide{min-width:100%;flex-shrink:0;padding:12px;}
+.res-slide{min-width:100%;flex-shrink:0;padding:12px;box-sizing:border-box;}
+.res-slide .mod-img-placeholder{margin:0;width:100%;}
+.res-slide img{width:100%;height:100%;object-fit:contain;border-radius:var(--r-md);}
 .res-slideshow-nav{display:flex;align-items:center;justify-content:space-between;padding:10px 12px 4px;}
 .res-slide-btn{width:36px;height:36px;border-radius:50%;background:var(--surface);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;color:var(--text-2);cursor:pointer;flex-shrink:0;transition:all .15s;}
 .res-slide-btn:active{background:var(--gold-dim);color:var(--gold);border-color:var(--gold);}
@@ -900,7 +902,7 @@ const MATERIALS = [
 
     <h3>🚪 Shutter Speed (s)</h3>
 
-    <div class="mod-img-placeholder">
+    <div class="mod-img-placeholder" style="aspect-ratio:16/9">
       <div class="img-icon">🖼</div>
       <div class="img-label">https://raw.githubusercontent.com/haydarahmed29/lensgoplus/main/images/materi/shutter-speed-demo.jpg</div>
     </div>
@@ -923,7 +925,7 @@ const MATERIALS = [
 
     <h3>🔊 ISO</h3>
 
-    <div class="mod-img-placeholder">
+    <div class="mod-img-placeholder" style="aspect-ratio:16/9">
       <div class="img-icon">🖼</div>
       <div class="img-label">https://raw.githubusercontent.com/haydarahmed29/lensgoplus/main/images/materi/iso-noise-demo.jpg</div>
     </div>
@@ -947,7 +949,7 @@ const MATERIALS = [
 
     <h3>👁 Aperture (f)</h3>
 
-    <div class="mod-img-placeholder">
+    <div class="mod-img-placeholder" style="aspect-ratio:16/9">
       <div class="img-icon">🖼</div>
       <div class="img-label">https://raw.githubusercontent.com/haydarahmed29/lensgoplus/main/images/materi/aperture-demo.jpg</div>
     </div>
@@ -1010,7 +1012,7 @@ const MATERIALS = [
     <p>Tidak semua HP punya Mode Pro  tapi <strong>semua HP pasti punya EV yang bisa diatur</strong>, bahkan di mode Auto sekalipun.</p>
     <p>Cukup dengan mengatur EV, kamu sudah bisa mengontrol seberapa terang atau gelap foto kamu tanpa khawatir tiba-tiba overexpose.</p>
 
-    <div class="mod-img-placeholder">
+    <div class="mod-img-placeholder" style="aspect-ratio:16/9">
       <div class="img-icon">🖼</div>
       <div class="img-label">https://raw.githubusercontent.com/haydarahmed29/lensgoplus/main/images/materi/ev-shortcut-auto-mode.jpg</div>
     </div>
@@ -3530,18 +3532,18 @@ function openResourceDetail(type, id) {
 
 
 function slideTo(id, idx) {
-  const track = document.getElementById('ss-track-'+id);
+  // Search in mod-content first (for dynamically rendered slideshows)
+  const container = document.getElementById('mod-content') || document;
+  const track = container.querySelector('#ss-track-'+id) || document.getElementById('ss-track-'+id);
   if (!track) return;
   const slides = track.querySelectorAll('.res-slide');
   const total = slides.length;
   idx = Math.max(0, Math.min(total-1, idx));
   window['_ssIdx_'+id] = idx;
   track.style.transform = `translateX(-${idx * 100}%)`;
-  // dots
-  const dots = document.querySelectorAll(`#ss-dots-${id} .res-slide-dot`);
-  dots.forEach((d,i) => d.classList.toggle('active', i===idx));
-  // counter
-  const counter = document.getElementById('ss-counter-'+id);
+  const dotsEl = container.querySelector('#ss-dots-'+id) || document.getElementById('ss-dots-'+id);
+  if (dotsEl) dotsEl.querySelectorAll('.res-slide-dot').forEach((d,i) => d.classList.toggle('active', i===idx));
+  const counter = container.querySelector('#ss-counter-'+id) || document.getElementById('ss-counter-'+id);
   if (counter) counter.textContent = `${idx+1} / ${total}`;
 }
 

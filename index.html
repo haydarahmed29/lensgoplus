@@ -448,11 +448,11 @@ a{color:inherit;text-decoration:none;}
 .install-ios-text{font-size:13px;color:var(--text-2);line-height:1.5;padding-top:2px;}
 
 /* ── RESOURCE SLIDESHOW ─────────────────────────────── */
-.res-slideshow{width:100%;overflow:hidden;border-radius:var(--r-lg);border:1px solid var(--border);background:var(--raised);}
-.res-slideshow-track{display:flex;transition:transform .3s ease;will-change:transform;}
-.res-slide{min-width:100%;flex-shrink:0;padding:12px;box-sizing:border-box;}
-.res-slide .mod-img-placeholder{margin:0;width:100%;max-height:70vh;overflow:hidden;}
-.res-slide img{width:100%;height:100%;max-height:70vh;object-fit:contain;border-radius:var(--r-md);display:block;}
+.res-slideshow{width:100%;overflow:hidden;border-radius:var(--r-lg);border:1px solid var(--border);background:var(--raised);position:relative;}
+.res-slideshow-track{display:flex;flex-wrap:nowrap;transition:transform .3s ease;will-change:transform;width:100%;}
+.res-slide{min-width:100%;max-width:100%;flex:0 0 100%;flex-shrink:0;padding:12px;box-sizing:border-box;overflow:hidden;}
+.res-slide .mod-img-placeholder{margin:0;width:100%;max-height:70vh;overflow:hidden;aspect-ratio:unset;}
+.res-slide img{width:100%;max-height:70vh;object-fit:contain;border-radius:var(--r-md);display:block;}
 .res-slideshow-nav{display:flex;align-items:center;justify-content:space-between;padding:10px 12px 4px;}
 .res-slide-btn{width:36px;height:36px;border-radius:50%;background:var(--surface);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;color:var(--text-2);cursor:pointer;flex-shrink:0;transition:all .15s;}
 .res-slide-btn:active{background:var(--gold-dim);color:var(--gold);border-color:var(--gold);}
@@ -3514,8 +3514,11 @@ function openResourceDetail(type, id) {
     </div>`;
   document.getElementById('mod-time-badge').textContent = '';
   document.getElementById('mod-content').innerHTML = mainContent;
-  loadImages(document.getElementById('mod-content'));
-  loadImages(document.getElementById('mod-title'));
+  // Use setTimeout to ensure DOM renders before scanning for images
+  setTimeout(() => {
+    loadImages(document.getElementById('mod-content'));
+    loadImages(document.getElementById('mod-title'));
+  }, 100);
 
   const btn = document.getElementById('mod-finish-btn');
   if (d.subtopics || d.baSliders) {
@@ -3854,29 +3857,28 @@ function copyVoucher() {
 
 function loadImages(container) {
   if (!container) return;
-  // Convert mod-img-placeholder and res-slide with img-label to actual img tags
-  container.querySelectorAll('.mod-img-placeholder, .ba-placeholder, .res-slide').forEach(ph => {
+  // Convert ALL mod-img-placeholder and ba-placeholder to actual img tags
+  container.querySelectorAll('.mod-img-placeholder, .ba-placeholder').forEach(ph => {
+    if (ph.querySelector('img')) return; // already loaded
     const label = ph.querySelector('.img-label');
     const icon = ph.querySelector('.img-icon');
-    if (label) {
-      const src = label.textContent.trim();
-      if (src && src.startsWith('http') && !ph.querySelector('img')) {
-        const img = document.createElement('img');
-        img.src = src;
-        img.style.cssText = 'width:100%;object-fit:contain;border-radius:var(--r-md);display:block;max-height:70vh;';
-        img.onerror = function() {
-          if (icon) icon.style.opacity = '.4';
-          label.style.display = 'block';
-          this.remove();
-        };
-        if (icon) icon.style.display = 'none';
-        label.style.display = 'none';
-        ph.insertBefore(img, ph.firstChild);
-      }
-    }
+    if (!label) return;
+    const src = label.textContent.trim();
+    if (!src || !src.startsWith('http')) return;
+    const img = document.createElement('img');
+    img.src = src;
+    img.style.cssText = 'width:100%;object-fit:contain;border-radius:var(--r-md);display:block;max-height:70vh;';
+    img.onerror = function() {
+      if (icon) icon.style.opacity = '.4';
+      label.style.display = 'block';
+      this.remove();
+    };
+    if (icon) icon.style.display = 'none';
+    label.style.display = 'none';
+    ph.insertBefore(img, ph.firstChild);
   });
 
-  // Also init all slideshows found in this container
+  // Init all slideshows in this container
   container.querySelectorAll('.res-slideshow').forEach(ss => {
     const track = ss.querySelector('.res-slideshow-track');
     if (!track) return;

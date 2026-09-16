@@ -3857,9 +3857,10 @@ function copyVoucher() {
 
 function loadImages(container) {
   if (!container) return;
-  // Convert ALL mod-img-placeholder and ba-placeholder to actual img tags
+
+  // 1. Convert mod-img-placeholder and ba-placeholder to img tags
   container.querySelectorAll('.mod-img-placeholder, .ba-placeholder').forEach(ph => {
-    if (ph.querySelector('img')) return; // already loaded
+    if (ph.querySelector('img')) return;
     const label = ph.querySelector('.img-label');
     const icon = ph.querySelector('.img-icon');
     if (!label) return;
@@ -3878,7 +3879,28 @@ function loadImages(container) {
     ph.insertBefore(img, ph.firstChild);
   });
 
-  // Init all slideshows in this container
+  // 2. Convert res-slide img-label to img tags (VSCO, Gallery, Snapseed, Template slideshows)
+  container.querySelectorAll('.res-slide').forEach(slide => {
+    if (slide.querySelector('img')) return;
+    const label = slide.querySelector('.img-label');
+    const icon = slide.querySelector('.img-icon');
+    if (!label) return;
+    const src = label.textContent.trim();
+    if (!src || !src.startsWith('http')) return;
+    const img = document.createElement('img');
+    img.src = src;
+    img.style.cssText = 'width:100%;object-fit:contain;border-radius:var(--r-md);display:block;max-height:70vh;margin:0 auto;';
+    img.onerror = function() {
+      if (icon) icon.style.opacity = '.4';
+      label.style.display = 'block';
+      this.remove();
+    };
+    if (icon) icon.style.display = 'none';
+    label.style.display = 'none';
+    slide.insertBefore(img, slide.firstChild);
+  });
+
+  // 3. Init all slideshows
   container.querySelectorAll('.res-slideshow').forEach(ss => {
     const track = ss.querySelector('.res-slideshow-track');
     if (!track) return;

@@ -2862,7 +2862,14 @@ const RESOURCES = {
           btnLabel:"Gunakan Template Canva",
           url:"https://canva.com"
         }
-      ]
+      ],
+      promoCard:{
+        badge:"📱 Story Collection",
+        title:"150+ Template Instagram Story",
+        desc:"Koleksi lengkap lebih dari 150 aesthetic template Instagram Story dalam berbagai tema, dan tidak perlu menggunakan Canva Pro.",
+        btnLabel:"Lihat Koleksi",
+        url:"https://canva.com"
+      }
     }},
     {id:"t2", name:"Instagram Feed", sub:"Template desain untuk IG Feed", icon:"https://raw.githubusercontent.com/haydarahmed29/lensgoplus/main/images/icons/feed-logo.png", detail:{
       eyebrow:"Template · Canva",
@@ -2949,7 +2956,7 @@ const RESOURCES = {
     {id:"g2",name:"Shutter Speed Chart",sub:"Motion & Light Reference",icon:"⚡",color:"var(--gold-dim)",url:"https://drive.google.com"},
   ],
   tools: [
-    {id:"to1",name:"Background Remover",sub:"Hapus latar belakang otomatis",icon:"✂️",url:"https://remove.bg"},
+    {id:"to1",name:"Remove Distraction Tools",sub:"Photobomb hilang dalam 1x click",icon:"✂️",url:"https://remove.bg"},
     {id:"to2",name:"Moodboard Template Feed Instagram",sub:"Template grid & preview feed IG",icon:"📱",url:"https://drive.google.com"},
   ],
 };
@@ -3531,6 +3538,34 @@ function openResourceDetail(type, id) {
       <a href="${s.url}" target="_blank" class="btn btn-primary btn-block" style="margin-top:16px;text-decoration:none">${s.btnLabel} →</a>
     `).join('');
     d.subtopics.forEach(s => { window['_ssIdx_' + s.id] = 0; });
+
+    // Render promoCard if exists
+    if (d.promoCard) {
+      const p = d.promoCard;
+      mainContent += `
+      <hr style="border:none;border-top:1px solid var(--border);margin:28px 0;">
+      <div class="res-promo-card" onclick="window.open('${p.url}','_blank')">
+        <div class="res-promo-inner">
+          <div class="ebook-badge-row" style="margin-bottom:12px">
+            <span class="badge badge-gold">${p.badge}</span>
+            <span class="ebook-urgency">Disc 37%</span>
+          </div>
+          <div style="font-family:'Fraunces',serif;font-size:22px;font-weight:600;line-height:1.25;margin-bottom:10px"><em style="color:var(--gold)">${p.title}</em></div>
+          <div style="font-size:13px;color:var(--text-2);line-height:1.6;margin-bottom:16px">${p.desc}</div>
+          <div class="ebook-voucher-box" style="margin-bottom:14px">
+            <div class="ebook-voucher-label">Pakai voucher ini saat checkout</div>
+            <div class="ebook-voucher-row">
+              <div class="ebook-voucher-code">LensGo37</div>
+              <button class="ebook-voucher-copy" onclick="event.stopPropagation();copyVoucher()">Salin</button>
+            </div>
+            <div class="ebook-voucher-sub">Hemat <strong>37%</strong> dari harga normal</div>
+          </div>
+          <div class="btn btn-primary btn-block" style="font-size:14px">${p.btnLabel} →</div>
+        </div>
+        <div class="ebook-deco-circle"></div>
+        <div class="ebook-deco-circle2"></div>
+      </div>`;
+    }
   }
 
   // Fallback
@@ -3555,6 +3590,10 @@ function openResourceDetail(type, id) {
   }, 100);
 
   const btn = document.getElementById('mod-finish-btn');
+  // Always hide next module button in resource detail
+  const nextBtn = document.getElementById('mod-next-btn');
+  if (nextBtn) nextBtn.style.display = 'none';
+
   if (d.subtopics || d.baSliders) {
     btn.style.display = 'none';
   } else {

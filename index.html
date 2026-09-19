@@ -524,6 +524,7 @@ a{color:inherit;text-decoration:none;}
     <div id="mod-content" class="module-content"></div>
     <div class="module-finish-btn">
       <button id="mod-finish-btn" class="btn btn-primary btn-block" onclick="finishModule()">Tandai Selesai ✓</button>
+      <button id="mod-next-btn" class="btn btn-ghost btn-block" onclick="nextModule()" style="margin-top:10px;display:none">Modul Berikutnya →</button>
     </div>
   </div>
 </div>
@@ -3235,6 +3236,20 @@ function openModule(id) {
   btn.textContent = isDone ? '✓ Sudah Selesai' : 'Tandai Selesai ✓';
   btn.disabled = isDone;
   btn.style.opacity = isDone ? '.5' : '1';
+  // Next button — show if already done and there's a next module
+  const nextBtn = document.getElementById('mod-next-btn');
+  if (nextBtn) {
+    const currentIndex = MATERIALS.findIndex(x => x.id === id);
+    const nextMaterial = MATERIALS[currentIndex + 1];
+    if (isDone && nextMaterial) {
+      nextBtn.style.display = 'flex';
+      nextBtn.textContent = nextMaterial.isBonus
+        ? '🎁 Buka Bonus Chapter →'
+        : `Modul ${nextMaterial.id}: ${nextMaterial.title.length > 30 ? nextMaterial.title.substring(0,30)+'…' : nextMaterial.title} →`;
+    } else {
+      nextBtn.style.display = 'none';
+    }
+  }
   showScreen('screen-module');
 }
 
@@ -3252,6 +3267,25 @@ function finishModule() {
   document.getElementById('mod-finish-btn').style.opacity = '.5';
   renderLearn();
   renderHome();
+  // Show next module button if there is a next module
+  const nextBtn = document.getElementById('mod-next-btn');
+  if (nextBtn) {
+    const currentIndex = MATERIALS.findIndex(x => x.id === currentModuleId);
+    const nextMaterial = MATERIALS[currentIndex + 1];
+    if (nextMaterial) {
+      nextBtn.style.display = 'flex';
+      nextBtn.textContent = nextMaterial.isBonus
+        ? '🎁 Buka Bonus Chapter →'
+        : `Modul ${nextMaterial.id}: ${nextMaterial.title.length > 30 ? nextMaterial.title.substring(0,30)+'…' : nextMaterial.title} →`;
+    }
+  }
+}
+
+function nextModule() {
+  if (!currentModuleId) return;
+  const currentIndex = MATERIALS.findIndex(x => x.id === currentModuleId);
+  const nextMaterial = MATERIALS[currentIndex + 1];
+  if (nextMaterial) openModule(nextMaterial.id);
 }
 
 function closeModule() {

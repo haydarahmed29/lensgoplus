@@ -1,4 +1,4 @@
-const CACHE_NAME = 'lensgoplus-v3';
+const CACHE_NAME = 'lensgoplus-v4';
 
 self.addEventListener('install', e => {
   self.skipWaiting();
@@ -14,7 +14,6 @@ self.addEventListener('activate', e => {
 });
 
 self.addEventListener('fetch', e => {
-  // Network first - always get fresh content
   e.respondWith(
     fetch(e.request).catch(() => caches.match(e.request))
   );

@@ -2754,7 +2754,7 @@ const MATERIALS = [
     </div>
     <div class="mod-img-caption">Contoh feed IG dengan pola warna konsisten  terasa seperti satu kesatuan meski subjeknya berbeda.</div>
 
-    <div class="mod-resource-cta" style="margin-top:16px" onclick="closeModule();goPage('page-resource',document.querySelector('.nav-btn:nth-child(3)'));setTimeout(()=>setResourceCat('Template'),100)">
+    <div class="mod-resource-cta" style="margin-top:16px" onclick="closeModule();goPage('page-resource',document.querySelector('.nav-btn:nth-child(3)'));renderResource();setTimeout(()=>setResourceCat('Template'),150)">
       <div class="mod-resource-cta-icon">📋</div>
       <div class="mod-resource-cta-info">
         <div class="mod-resource-cta-title">Template & Tools Preview sudah disiapkan!</div>
@@ -2952,8 +2952,8 @@ const RESOURCES = {
     }},
   ],
   guide: [
-    {id:"g1",name:"Manual Settings Cheatsheet",sub:"ISO · Shutter · WB Guide",icon:"📋",color:"var(--blue-dim)",url:"https://drive.google.com/drive/folders/169ILOYYeh0SMoS8heILLpXtlwJRd4p15?usp=sharing"},
-    {id:"g2",name:"Shutter Speed Cheatsheet",sub:"Motion & Light Reference",icon:"⚡",color:"var(--gold-dim)",url:"https://drive.google.com/drive/folders/169ILOYYeh0SMoS8heILLpXtlwJRd4p15?usp=sharing"},
+    {id:"g1",name:"Manual Settings Cheatsheet",sub:"Shutter · ISO · Aperture · EV",icon:"📋",color:"var(--blue-dim)",url:"https://drive.google.com/file/d/1qctEI92PXKw2lCeoRxjnmJQqdkKMUjL-/view?usp=sharing"},
+    {id:"g2",name:"Shutter Speed Cheatsheet",sub:"Motion & Light Reference",icon:"⚡",color:"var(--gold-dim)",url:"https://drive.google.com/file/d/109NT7PJZwoZ_W0sHyH933IrIDuibTms_/view?usp=sharing"},
   ],
   tools: [
     {id:"to1",name:"Remove Distraction Tools",sub:"Photobomb hilang dalam 1x click",icon:"✂️",url:"https://gemini.google.com/share/b588ef1a1baa?skid=3287f839-cbbb-456d-a642-33a388c5e33b"},
@@ -3356,31 +3356,6 @@ function renderResourceContent() {
         <svg viewBox="0 0 24 24" style="width:16px;height:16px;stroke:var(--text-3);fill:none;stroke-width:2;flex-shrink:0"><path d="M9 18l6-6-6-6"/></svg>
       </div>`).join('');
 
-    // Promo card hanya di tab Presets
-    if (c === 'Presets') {
-      html += `
-      <div class="res-promo-card" onclick="window.open('https://thegoodsvisual.lynk.id/p/color-presets-master-collection','_blank')">
-        <div class="res-promo-inner">
-          <div class="ebook-badge-row" style="margin-bottom:12px">
-            <span class="badge badge-gold">🎨 Master Collection</span>
-            <span class="ebook-urgency">Disc 37%</span>
-          </div>
-          <div style="font-family:'Fraunces',serif;font-size:22px;font-weight:600;line-height:1.25;margin-bottom:8px">Get <em style="color:var(--gold)">+99</em> Master Collection<br>Presets by 101</div>
-          <div style="font-size:13px;color:var(--text-2);line-height:1.55;margin-bottom:16px">Koleksi lengkap 99+ preset premium untuk semua kondisi cahaya dan gaya foto. Satu kali download, pakai seumur hidup.</div>
-          <div class="ebook-voucher-box" style="margin-bottom:14px">
-            <div class="ebook-voucher-label">Pakai voucher ini saat checkout</div>
-            <div class="ebook-voucher-row">
-              <div class="ebook-voucher-code">LensGo37</div>
-              <button class="ebook-voucher-copy" onclick="event.stopPropagation();copyVoucher()">Salin</button>
-            </div>
-            <div class="ebook-voucher-sub">Hemat <strong>37%</strong> dari harga normal</div>
-          </div>
-          <div class="btn btn-primary btn-block" style="font-size:14px">Dapatkan Sekarang →</div>
-        </div>
-        <div class="ebook-deco-circle"></div>
-        <div class="ebook-deco-circle2"></div>
-      </div>`;
-    }
   }
 
   if (c==='All' || c==='Guide') {

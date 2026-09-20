@@ -563,7 +563,7 @@ a{color:inherit;text-decoration:none;}
       <div class="level-xp" id="home-xp-text">0 / 100 XP menuju Level 2</div>
       <div id="home-completion-msg" style="display:none;margin-top:14px;padding-top:14px;border-top:1px solid rgba(255,255,255,.1)">
         <div style="font-size:15px;font-weight:700;margin-bottom:4px">🏆 Selamat, perjalananmu tidak berhenti di sini!</div>
-        <div style="font-size:13px;line-height:1.6;opacity:.85">Kamu telah menyelesaikan seluruh misi dan materi. Kini kamu adalah seorang <strong>Expert Mobile Photographer</strong> — terus berkarya dan eksplorasi lebih jauh!</div>
+        <div style="font-size:13px;line-height:1.6;opacity:.85">Kamu telah menyelesaikan seluruh misi dan materi. Kini kamu adalah seorang <strong>Expert Mobile Photographer</strong>, terus berkarya dan eksplorasi!</div>
       </div>
     </div>
 
@@ -3143,8 +3143,6 @@ function renderHome() {
   document.getElementById('home-level-title').textContent = info.title;
   document.getElementById('home-prog').style.width = progress + '%';
   const nextLvl = LEVELS[Math.min(info.lvl, LEVELS.length-1)];
-  document.getElementById('home-xp-text').textContent = `${xp} XP · ${progress}% menuju Level ${Math.min(info.lvl+1,7)}`;
-
   // Check all missions & materials completed
   const allMissionsDone = MISSIONS.every(m => state.gamification.doneMissions.includes(m.id));
   const allMaterialsDone = MATERIALS.every(m => state.gamification.doneMaterials.includes(m.id));
@@ -3158,12 +3156,16 @@ function renderHome() {
     card.style.boxShadow = '0 0 24px rgba(212,200,0,.15)';
     if (label) label.textContent = '🏆 Semua selesai!';
     if (msg) msg.style.display = 'block';
+    document.getElementById('home-level-num').textContent = '👑';
+    document.getElementById('home-xp-text').textContent = 'Kamu telah menyelesaikan semuanya.';
   } else {
     card.style.background = '';
     card.style.borderColor = '';
     card.style.boxShadow = '';
     if (label) label.textContent = 'Level saat ini';
     if (msg) msg.style.display = 'none';
+    document.getElementById('home-level-num').textContent = info.lvl;
+    document.getElementById('home-xp-text').textContent = `${xp} XP · ${progress}% menuju Level ${Math.min(info.lvl+1,7)}`;
   }
 
   // continue learning

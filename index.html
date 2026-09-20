@@ -2956,7 +2956,19 @@ const RESOURCES = {
     {id:"g2",name:"Shutter Speed Cheatsheet",sub:"Motion & Light Reference",icon:"⚡",color:"var(--gold-dim)",url:"https://drive.google.com/file/d/109NT7PJZwoZ_W0sHyH933IrIDuibTms_/view?usp=sharing"},
   ],
   tools: [
-    {id:"to1",name:"Remove Distraction Tools",sub:"Photobomb hilang dalam 1x click",icon:"✂️",url:"https://gemini.google.com/share/b588ef1a1baa?skid=3287f839-cbbb-456d-a642-33a388c5e33b"},
+    {id:"to1",name:"Remove Distraction Tools",sub:"Photobomb hilang dalam 1x click",icon:"✂️",url:"https://gemini.google.com/share/b588ef1a1baa?skid=3287f839-cbbb-456d-a642-33a388c5e33b",detail:{
+      eyebrow:"Tools · Remuv.io",
+      title:"Remove Distraction Tools",
+      desc:"Pernahkah kamu dapat foto bagus tapi ada orang atau objek yang mengganggu di background? Sekarang bisa dihapus dalam hitungan detik. Remuv adalah AI tools berbasis web yang bisa menghapus objek, orang, watermark, atau elemen pengganggu apapun dari foto kamu tanpa perlu skill editing, tanpa download aplikasi, cukup upload dan klik.<br><br>Berikut beberapa hasil dari Remuv by Thegoodsvisual:",
+      action:"Coba Remuv Sekarang!", url:"https://gemini.google.com/share/b588ef1a1baa?skid=3287f839-cbbb-456d-a642-33a388c5e33b",
+      baSliders:[
+        {id:"remuv-1", label:"Contoh 1", before:"https://raw.githubusercontent.com/haydarahmed29/lensgoplus/main/images/tools/remuv-before-1.jpg", after:"https://raw.githubusercontent.com/haydarahmed29/lensgoplus/main/images/tools/remuv-after-1.jpg"},
+        {id:"remuv-2", label:"Contoh 2", before:"https://raw.githubusercontent.com/haydarahmed29/lensgoplus/main/images/tools/remuv-before-2.jpg", after:"https://raw.githubusercontent.com/haydarahmed29/lensgoplus/main/images/tools/remuv-after-2.jpg"},
+        {id:"remuv-3", label:"Contoh 3", before:"https://raw.githubusercontent.com/haydarahmed29/lensgoplus/main/images/tools/remuv-before-3.jpg", after:"https://raw.githubusercontent.com/haydarahmed29/lensgoplus/main/images/tools/remuv-after-3.jpg"},
+        {id:"remuv-4", label:"Contoh 4", before:"https://raw.githubusercontent.com/haydarahmed29/lensgoplus/main/images/tools/remuv-before-4.jpg", after:"https://raw.githubusercontent.com/haydarahmed29/lensgoplus/main/images/tools/remuv-after-4.jpg"},
+      ],
+      extraBtn:{label:"Panduan Memakai Remuv", url:"https://gemini.google.com/share/b588ef1a1baa?skid=3287f839-cbbb-456d-a642-33a388c5e33b"}
+    }},
     {id:"to2",name:"Instagram Visual Mastery",sub:"Visual grid · carousel · moodboard · template · preview",icon:"📱",url:"https://drive.google.com/file/d/1QN7At2T0vH_NVcLaymjcI-puG1Ca4sDD/view"},
   ],
 };
@@ -3373,15 +3385,23 @@ function renderResourceContent() {
 
   if (c==='All' || c==='Tools') {
     html += `<div class="sec-head"><div class="sec-title">Tools</div></div>`;
-    html += RESOURCES.tools.map(t => `
-      <div class="guide-card" onclick="window.open('${t.url}','_blank')">
+    html += RESOURCES.tools.map(t => {
+      const onclick = t.detail
+        ? `openResourceDetail('tools','${t.id}')`
+        : `window.open('${t.url}','_blank')`;
+      const icon = t.detail
+        ? `<svg viewBox="0 0 24 24" style="width:16px;height:16px;stroke:var(--text-3);fill:none;stroke-width:2;flex-shrink:0"><path d="M9 18l6-6-6-6"/></svg>`
+        : `<svg viewBox="0 0 24 24" style="width:16px;height:16px;stroke:var(--text-3);fill:none;stroke-width:2;flex-shrink:0"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>`;
+      return `
+      <div class="guide-card" onclick="${onclick}">
         <div class="guide-icon" style="background:var(--raised);font-size:22px">${t.icon}</div>
         <div class="guide-info">
           <div class="guide-title">${t.name}</div>
           <div class="guide-sub">${t.sub}</div>
         </div>
-        <svg viewBox="0 0 24 24" style="width:16px;height:16px;stroke:var(--text-3);fill:none;stroke-width:2;flex-shrink:0"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-      </div>`).join('');
+        ${icon}
+      </div>`;
+    }).join('');
   }
 
   document.getElementById('resource-content').innerHTML = html;
@@ -3401,10 +3421,10 @@ function openResourceDetail(type, id) {
 
   // Before/After sliders (Lightroom)
   if (d.baSliders && d.baSliders.length) {
-    mainContent += `<div style="font-size:14px;font-weight:700;margin-bottom:16px">Berikut hasil dari 7 Presets tersebut:</div>`;
+
     mainContent += d.baSliders.map(s => `
       <div style="margin-bottom:20px">
-        <div style="font-size:12px;font-weight:700;letter-spacing:.06em;color:var(--gold);text-transform:uppercase;margin-bottom:8px">${s.label}_SAMPLE</div>
+        <div style="font-size:13px;font-weight:700;color:var(--text-2);margin-bottom:8px">${s.label}</div>
         <div class="ba-slider-wrap" id="ba-r-${s.id}">
           <div class="ba-label-row"><span class="ba-label bad">Before</span><span class="ba-label good">After</span></div>
           <div class="ba-slider-box" style="aspect-ratio:3/4">
@@ -3417,8 +3437,10 @@ function openResourceDetail(type, id) {
         </div>
       </div>`).join('');
 
-    // Download button DULU
-    mainContent += `<a href="${d.url}" target="_blank" class="btn btn-primary btn-block" style="margin-bottom:20px;text-decoration:none">${d.action} →</a>`;
+    // Download button - skip for items with extraBtn (they have bottom buttons instead)
+    if (!d.extraBtn) {
+      mainContent += `<a href="${d.url}" target="_blank" class="btn btn-primary btn-block" style="margin-bottom:20px;text-decoration:none">${d.action} →</a>`;
+    }
 
     // Promo card SETELAH download
     if (d.hasPromo) {
@@ -3571,7 +3593,33 @@ function openResourceDetail(type, id) {
 
   if (d.subtopics || d.baSliders) {
     btn.style.display = 'none';
+    // For baSliders with extraBtn, add extra button after content
+    if (d.baSliders && d.extraBtn) {
+      setTimeout(() => {
+        const existing = document.getElementById('mod-extra-btn');
+        if (!existing) {
+          const eb = document.createElement('a');
+          eb.id = 'mod-extra-btn';
+          eb.href = d.extraBtn.url;
+          eb.target = '_blank';
+          eb.className = 'btn btn-ghost btn-block';
+          eb.style.cssText = 'margin-top:10px;text-decoration:none;display:flex;align-items:center;justify-content:center;';
+          eb.textContent = d.extraBtn.label + ' →';
+          const finishDiv = document.querySelector('.module-finish-btn');
+          if (finishDiv) finishDiv.appendChild(eb);
+        }
+      }, 150);
+      // Show main action button too
+      btn.style.display = 'flex';
+      btn.textContent = d.action + ' →';
+      btn.disabled = false;
+      btn.style.opacity = '1';
+      btn.onclick = () => window.open(d.url, '_blank');
+    }
   } else {
+    // Remove extra btn if exists
+    const existing = document.getElementById('mod-extra-btn');
+    if (existing) existing.remove();
     btn.style.display = 'flex';
     btn.textContent = d.action + ' →';
     btn.disabled = false;

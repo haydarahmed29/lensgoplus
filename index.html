@@ -561,9 +561,9 @@ a{color:inherit;text-decoration:none;}
         <div class="prog-fill" id="home-prog" style="width:0%"></div>
       </div>
       <div class="level-xp" id="home-xp-text">0 / 100 XP menuju Level 2</div>
-      <div id="home-completion-msg" style="display:none;margin-top:14px;padding-top:14px;border-top:1px solid rgba(255,255,255,.1)">
-        <div style="font-size:15px;font-weight:700;margin-bottom:4px">🏆 Selamat, perjalananmu tidak berhenti di sini!</div>
-        <div style="font-size:13px;line-height:1.6;opacity:.85">Kamu telah menyelesaikan seluruh misi dan materi. Kini kamu adalah seorang <strong>Expert Mobile Photographer</strong>, terus berkarya dan eksplorasi!</div>
+      <div id="home-completion-msg" style="display:none;margin-top:14px;padding-top:14px;border-top:1px solid rgba(255,255,255,.15)">
+        <div style="font-size:15px;font-weight:700;margin-bottom:4px;color:#FFFFFF">🏆 Selamat, perjalananmu tidak berhenti di sini!</div>
+        <div style="font-size:13px;line-height:1.6;color:rgba(255,255,255,0.75)">Kamu telah menyelesaikan seluruh misi dan materi. Kini kamu adalah seorang <strong style="color:var(--gold)">Expert Mobile Photographer</strong>, terus berkarya dan eksplorasi!</div>
       </div>
     </div>
 
@@ -3151,21 +3151,27 @@ function renderHome() {
   const msg = document.getElementById('home-completion-msg');
   const label = document.getElementById('home-level-label');
   if (allDone) {
-    card.style.background = 'linear-gradient(135deg, #1a1700, #2a2300)';
+    card.style.background = '#1C1A00';
     card.style.borderColor = 'var(--gold)';
-    card.style.boxShadow = '0 0 24px rgba(212,200,0,.15)';
-    if (label) label.textContent = '🏆 Semua selesai!';
+    card.style.boxShadow = '0 0 24px rgba(212,200,0,.2)';
+    if (label) { label.textContent = '🏆 Semua selesai!'; label.style.color = 'var(--gold)'; }
     if (msg) msg.style.display = 'block';
     document.getElementById('home-level-num').textContent = '👑';
+    document.getElementById('home-level-title').style.color = '#FFFFFF';
+    document.getElementById('home-level-title').style.textShadow = 'none';
     document.getElementById('home-xp-text').textContent = 'Kamu telah menyelesaikan semuanya.';
+    document.getElementById('home-xp-text').style.color = 'rgba(255,255,255,0.7)';
   } else {
     card.style.background = '';
     card.style.borderColor = '';
     card.style.boxShadow = '';
-    if (label) label.textContent = 'Level saat ini';
+    if (label) { label.textContent = 'Level saat ini'; label.style.color = ''; }
     if (msg) msg.style.display = 'none';
     document.getElementById('home-level-num').textContent = info.lvl;
+    document.getElementById('home-level-title').style.color = '';
+    document.getElementById('home-level-title').style.textShadow = '';
     document.getElementById('home-xp-text').textContent = `${xp} XP · ${progress}% menuju Level ${Math.min(info.lvl+1,7)}`;
+    document.getElementById('home-xp-text').style.color = '';
   }
 
   // continue learning
@@ -3276,7 +3282,7 @@ function openModule(id) {
   document.getElementById('mod-title').textContent = m.isBonus ? `🎁 ${m.title}` : m.title;
   document.getElementById('mod-time-badge').textContent = `⏱ ${m.read_time}`;
   document.getElementById('mod-content').innerHTML = m.content;
-  setTimeout(() => loadImages(document.getElementById('mod-content')), 50);
+  requestAnimationFrame(() => { loadImages(document.getElementById('mod-content')); setTimeout(() => loadImages(document.getElementById('mod-content')), 300); });
   const isDone = state.gamification.doneMaterials.includes(id);
   const btn = document.getElementById('mod-finish-btn');
   btn.textContent = isDone ? '✓ Sudah Selesai' : 'Tandai Selesai ✓';
@@ -3607,11 +3613,14 @@ function openResourceDetail(type, id) {
     </div>`;
   document.getElementById('mod-time-badge').textContent = '';
   document.getElementById('mod-content').innerHTML = mainContent;
-  // Use setTimeout to ensure DOM renders before scanning for images
-  setTimeout(() => {
+  // Use requestAnimationFrame + setTimeout for reliable image loading
+  requestAnimationFrame(() => {
     loadImages(document.getElementById('mod-content'));
     loadImages(document.getElementById('mod-title'));
-  }, 100);
+    setTimeout(() => {
+      loadImages(document.getElementById('mod-content'));
+    }, 300);
+  });
 
   const btn = document.getElementById('mod-finish-btn');
   // Always hide next module button in resource detail
@@ -3728,16 +3737,42 @@ function renderNoteCard(n, isList) {
 
   const cls = isList ? 'note-card-list' : 'note-card';
   return `
-  <div class="${cls}">
+  <div class="${cls}" onclick="openNoteDetail('${n.id}')" style="cursor:pointer">
     ${photoHtml}
     <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:8px;margin-top:${n.photo?'10px':'0'}">
       <div class="note-title">${escHtml(n.title)}</div>
-      <button onclick="openNoteActions('${n.id}')" style="color:var(--text-3);font-size:18px;flex-shrink:0;padding:0 4px">⋯</button>
+      <button onclick="event.stopPropagation();openNoteActions('${n.id}')" style="color:var(--text-3);font-size:18px;flex-shrink:0;padding:0 4px">⋯</button>
     </div>
     <div class="note-body">${escHtml(n.body)}</div>
     ${driveHtml}
     <div class="note-date">${formatDate(n.date)}</div>
   </div>`;
+}
+
+function openNoteDetail(noteId) {
+  const n = state.notes.find(x => x.id === noteId);
+  if (!n) return;
+  const driveId = extractDriveId(n.driveUrl);
+  const photoHtml = n.photo ? `<img src="${n.photo}" style="width:100%;border-radius:var(--r-md);margin-bottom:16px;object-fit:cover;max-height:300px">` : '';
+  const driveHtml = driveId ? `
+    <div style="margin-top:16px;display:flex;gap:8px;flex-wrap:wrap">
+      <button class="btn btn-ghost btn-sm" onclick="previewDrive('${driveId}')">👁 Preview</button>
+      <button class="btn btn-ghost btn-sm" onclick="window.open('https://drive.google.com/uc?id=${driveId}&export=download','_blank')">⬇ Download</button>
+    </div>` : '';
+  openSheet(`
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px">
+      <div style="font-size:18px;font-weight:700;line-height:1.3;flex:1">${escHtml(n.title)}</div>
+      <button onclick="closeSheet()" style="font-size:22px;color:var(--text-3);padding:0 4px;flex-shrink:0">×</button>
+    </div>
+    ${photoHtml}
+    <div style="font-size:14px;line-height:1.8;color:var(--text-2);white-space:pre-wrap">${escHtml(n.body)}</div>
+    ${driveHtml}
+    <div style="font-size:11px;color:var(--text-3);margin-top:16px">${formatDate(n.date)}</div>
+    <div style="display:flex;gap:8px;margin-top:16px">
+      <button class="btn btn-primary" style="flex:1" onclick="closeSheet();openNoteSheet(state.notes.find(x=>x.id==='${n.id}'))">✏️ Edit</button>
+      <button class="btn btn-ghost btn-sm" onclick="closeSheet()">Tutup</button>
+    </div>
+  `);
 }
 
 function extractDriveId(url) {
